@@ -1,0 +1,8 @@
+test.md
+node_modules/
+ignore/
+.cache/
+.parcel-cache/
+*.bat*
+.server.js
+.index.html
