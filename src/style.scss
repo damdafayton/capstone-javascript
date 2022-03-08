@@ -1,70 +1,70 @@
 div {
-    color: black;
+  color: black;
 }
 
 .cursor-pointer {
-    cursor: pointer !important;
+  cursor: pointer !important;
 }
 
 li {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 footer {
-    background-color: black;
-    padding: 5vh 1% 0% 1%;
+  background-color: black;
+  padding: 5vh 1% 0% 1%;
 }
 
 .footer1 {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer2 {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 #popup-frame {
-    background-color: rgb(0 0 0 / 62%);
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+  background-color: rgb(0 0 0 / 62%);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 
-    #popup-inner {
-        max-height: 80vh;
-        background-color: white;
-        color: black;
-    }
+  #popup-inner {
+    max-height: 80vh;
+    background-color: white;
+    color: black;
+  }
 
-    #popup-close {
-        z-index: 10;
-        top: 5px;
-        right: 8px;
-    }
+  #popup-close {
+    z-index: 10;
+    top: 5px;
+    right: 8px;
+  }
 
-    ul {
-        padding: 0;
-    }
+  ul {
+    padding: 0;
+  }
 
-    li {
-        list-style: none;
-    }
+  li {
+    list-style: none;
+  }
 }
 
 h2 {
-    span {
-        font-size: 1rem;
-    }
+  span {
+    font-size: 1rem;
+  }
 }
 
 .value-drop {
-    color: red;
+  color: red;
 }
 
 .value-increase {
-    color: green;
+  color: green;
 }
