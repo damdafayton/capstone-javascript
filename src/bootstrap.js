@@ -1,4 +1,4 @@
 import './bootstrap.scss';
 
 // You can specify which plugins you need
-import { Tooltip, Toast, Popover } from 'bootstrap';
+// import { Tooltip, Toast, Popover } from 'bootstrap';
