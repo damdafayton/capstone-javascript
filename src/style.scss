@@ -9,3 +9,19 @@ div {
 li {
     white-space: nowrap;
 }
+
+footer {
+    background-color: black;
+    padding: 5vh 1% 0% 1%;
+}
+
+.footer1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer2 {
+    width: 100%;
+    text-align: center;
+}
