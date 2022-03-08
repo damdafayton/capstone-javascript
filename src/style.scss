@@ -1,6 +1,6 @@
-*{
-    margin: 0%;
-    padding: 0%;
+* {
+  margin: 0%;
+  padding: 0%;
 }
 
 .cursor-pointer {
@@ -13,8 +13,8 @@ li {
 
 footer {
   padding: 5vh 1% 0% 1%;
-  background-color: #2E1223;
-  color: #F09E41;
+  background-color: #2e1223;
+  color: #f09e41;
   font-weight: 600;
 }
 
@@ -27,8 +27,8 @@ footer {
 }
 
 .footer1 button {
-  background-color: #F09E41;
-  color: #2E1223;
+  background-color: #f09e41;
+  color: #2e1223;
   border: none;
 }
 
@@ -38,12 +38,12 @@ footer {
 }
 
 ul {
-    list-style: none;
-    padding: 0%;
+  list-style: none;
+  padding: 0%;
 }
 
 .listContainer {
-    margin: 7vh 0%;
+  margin: 7vh 0%;
 }
 
 .coins {
@@ -51,9 +51,9 @@ ul {
 }
 
 .coinImage {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
 }
 
 // .coins {
@@ -64,18 +64,19 @@ ul {
   font-weight: 600;
 }
 
-.listTitles, .coin {
-    padding: 5px;
-    border: 1px solid black;
-    border-radius: 25px;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr 2fr 1fr 3fr ;
-    margin: 10px 0%;
+.listTitles,
+.coin {
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 25px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 2fr 1fr 3fr;
+  margin: 10px 0%;
 }
 
-.listTitles li,.coin li {
+.listTitles li,
+.coin li {
   text-align: center;
- 
 }
 
 .coinIcons {
@@ -104,10 +105,10 @@ ul {
   justify-content: center;
   align-items: center;
   font-weight: 600;
-  width:20px;
+  width: 20px;
   height: 20px;
-  color:#F09E41;
-  background-color:#2E1223;
+  color: #f09e41;
+  background-color: #2e1223;
   border-radius: 50%;
   margin: 10px;
   cursor: pointer;
