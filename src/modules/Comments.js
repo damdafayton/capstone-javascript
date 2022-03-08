@@ -37,15 +37,19 @@ const retrieveCoinData = (coin) => {
                     24H: <span class=${price_change_24h < 0 ? 'value-drop' : 'value-increase'}>${symbolMap[baseCurrency]}${digitRemover(price_change_24h)}</span>
                     1Y: <span class=${price_change_percentage_1y < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(price_change_percentage_1y)}%</span>
                 </div>
-                <div class="row text-start row-cols-2">
-                    <ul class="">
+                <div class="row row-cols-2">
+                    <div class="d-flex justify-content-center">
+                    <ul class="text-start">
                         <li>Symbol: ${symbol.toUpperCase()}</li>
                         <li>Price: ${symbolMap[baseCurrency]}${readableNumbers(current_price)}</li>
                     </ul>
-                    <ul class="">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                    <ul class="text-start">
                         <li>Market Cap: ${symbolMap[baseCurrency]}${readableNumbers(market_cap)}</li>
                         <li>Total Volume: ${symbolMap[baseCurrency]}${readableNumbers(total_volume)}</li>
                     </ul>
+                    </div>
                 </div>
             </div>`
         })
