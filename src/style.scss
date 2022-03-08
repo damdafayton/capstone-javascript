@@ -1,28 +1,42 @@
 div {
-  color: blue;
+    color: blue;
 }
 
 .cursor-pointer {
-  cursor: pointer !important;
+    cursor: pointer !important;
 }
 
 li {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 footer {
-  background-color: black;
-  padding: 5vh 1% 0% 1%;
+    background-color: black;
+    padding: 5vh 1% 0% 1%;
 }
 
 .footer1 {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer2 {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
+}
+
+#popup-frame {
+    background-color: rgb(0 0 0 / 62%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#popup-inner {
+    max-height: 80vh;
+    background-color: white;
+    color: black;
 }
