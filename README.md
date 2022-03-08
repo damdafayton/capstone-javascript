@@ -1,26 +1,20 @@
-![](images.jfif)
-
-
-# Hello Project
-
-> Title
-
-This project has no features.
+# Javascript Capstone Project
 
 
 ## Built With
 
-- HTML, CSS
+- HTML, CSS, JavaScript
 
 
 ## Live Demo
 
-[Live Demo Link](https://damdafayton.github.io/)
+[Live Demo Link](https://damdafayton.github.io/capstone-javascript/dist/)
 
 
 ## Getting Started
 
-Download and click `index.html` if you really want to run this page.
+- Clone the repo
+- Click `dist/index.html`
 
 
 
@@ -42,11 +36,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-
-## Acknowledgments
-
-- Hat tip to all developers.
 
 
 ## 📝 License
