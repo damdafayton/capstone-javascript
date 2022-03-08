@@ -1,5 +1,5 @@
 div {
-    color: blue;
+    color: black;
 }
 
 .cursor-pointer {
@@ -33,10 +33,34 @@ footer {
     left: 0;
     width: 100vw;
     height: 100vh;
+
+    #popup-inner {
+        max-height: 80vh;
+        background-color: white;
+        color: black;
+    }
+
+    #popup-close {
+        z-index: 10;
+        top: 5px;
+        right: 8px;
+    }
+
+    li {
+        list-style: none;
+    }
 }
 
-#popup-inner {
-    max-height: 80vh;
-    background-color: white;
-    color: black;
+h2 {
+    span {
+        font-size: 1rem;
+    }
+}
+
+.value-drop {
+    color: red;
+}
+
+.value-increase {
+    color: green;
 }
