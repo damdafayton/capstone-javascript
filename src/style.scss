@@ -13,13 +13,23 @@ li {
 
 footer {
   padding: 5vh 1% 0% 1%;
+  background-color: #2E1223;
+  color: #F09E41;
+  font-weight: 600;
 }
 
 .footer1 {
   width: 100%;
+  padding: 5vh 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.footer1 button {
+  background-color: #F09E41;
+  color: #2E1223;
+  border: none;
 }
 
 .footer2 {
@@ -33,7 +43,7 @@ ul {
 }
 
 .listContainer {
-    margin-top: 5vh;
+    margin: 7vh 0%;
 }
 
 .coins {
@@ -78,4 +88,31 @@ ul {
   color: green;
   font-weight: 600;
   margin-left: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination ul {
+  display: flex;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  width:20px;
+  height: 20px;
+  color:#F09E41;
+  background-color:#2E1223;
+  border-radius: 50%;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.selectedPage {
+  opacity: 0.5;
 }

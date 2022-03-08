@@ -22,7 +22,7 @@ const createCoinElement=(coin)=>{
                      <button class="buyButton">Buy
                      <i class="fas fa-shopping-basket"></i></button>
                      </li>
-                     <li> ${coin.current_price}usd</li>
+                     <li> ${coin.current_price}$</li>
                      <li style="color:${coin.price_change_percentage_24h>0?'green':'red'}">${coin.price_change_percentage_24h}</li>
                      <li>${coin.circulating_supply}</li>
                  </ul>
@@ -33,9 +33,10 @@ const addToDom=async(request,ul)=>{
     console.log(result);
     ul.innerHTML = ``;
     console.log('tag element::',ul);
-     result.forEach(element => {
-             ul.innerHTML  +=createCoinElement(element);
-          }); 
+    for(var i=0;i<10;i++){
+          ul.innerHTML  +=createCoinElement(result[i]);
+    }
+     
 }
 
 addToDom(request,coins);
