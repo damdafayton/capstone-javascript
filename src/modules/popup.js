@@ -12,7 +12,20 @@ const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
 const symbolMap = { usd: '$' };
 
-export default (coin) => {
+export const addClickHandlers = () => {
+  const coins = document.querySelectorAll('.coins > li')
+  console.log('>> ', coins)
+  coins.forEach(coin => {
+    const buyBtn = coin.querySelector('.buyButton')
+    console.log(buyBtn)
+    buyBtn.addEventListener('click', () => {
+      const coinName = coin.querySelector('.coinIcons > strong').innerText
+      clickHandler(coinName)
+    })
+  })
+}
+
+const clickHandler = (coin) => {
   const popupFrame = document.querySelector('#popup-frame');
   const popupInner = popupFrame.querySelector('#popup-inner');
   popupFrame.classList.remove('d-none');
@@ -29,8 +42,8 @@ export default (coin) => {
         market_data: { market_cap: { [baseCurrency]: marketCap } },
         market_data: { total_volume: { [baseCurrency]: totalVolume } },
         market_data: {
-          price_change_24h: priceChange24H,
-          price_change_percentage_1y: priceChange1Y,
+          price_change_percentage_24h: priceChange24H,
+          price_change_percentage_1y: priceChange1Y
         },
       } = parsed;
       popupInner.innerHTML += `

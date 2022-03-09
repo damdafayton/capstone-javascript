@@ -1,11 +1,11 @@
-let appID;
+let appID = 'WXXsCPtk675NtAM8NnCG';
 const apiInvolvement = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 
-// temporary code
-fetch(apiInvolvement, { method: 'POST' })
-  .then((result) => result.text())
-  .then((parsed) => { appID = parsed; })
-  .then(() => console.log(appID));
+// temporary code - get app id
+// fetch(apiInvolvement, { method: 'POST' })
+//   .then((result) => result.text())
+//   .then((parsed) => { appID = parsed; })
+//   .then(() => console.log(appID));
 // temporary code ends
 
 export function commentFetch(coin) {
