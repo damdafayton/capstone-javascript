@@ -28,17 +28,21 @@ const cryptoCount=(array)=>{
                 </li>`;
   const addToDom = async (request, ul, coinsCountContainer, displayFrom=0) => {
     const result = await getData(request);
-    console.log(result);
     coinsCountContainer.innerHTML= cryptoCount(result);
     ul.innerHTML = '';
-    console.log('tag element::', ul);
-    for (let i = displayFrom; i < 10; i += 1) {
+    for (let i = displayFrom; i < (displayFrom+10); i += 1) {
       ul.innerHTML += createCoinElement(result[i]);
     }
   };
 
-  const displayPage=(pageNumber,)=>{
-      
+  const displayPage=(pageControlList,request, ul, coinsCountContainer)=>{
+      pageControlList.forEach(element => {
+          element.addEventListener('click',(e)=>{
+            pageControlList.forEach(item=>item.classList.remove('selectedPage'));
+            element.classList.add('selectedPage');
+            addToDom(request, ul, coinsCountContainer,element.id*10);
+          })
+      });
   }
 
-  export {addToDom, getData, cryptoCount};
+  export {addToDom, getData, cryptoCount, displayPage};
