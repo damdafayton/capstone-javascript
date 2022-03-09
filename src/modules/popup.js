@@ -1,4 +1,4 @@
-import { commentFetch, commentSubmitHandler } from './comments'
+import { commentFetch, commentSubmitHandler } from './comments';
 
 const apiUrlForCoin = (coin) => `https://api.coingecko.com/api/v3/coins/${coin}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
 
@@ -58,7 +58,7 @@ export default (coin) => {
                 </div>
                 <div>
                   <div id="comments" class="d-none">
-                    <p class="fw-bolder">Comments</p> 
+                    <p class="fw-bolder">Comments <span></span></p> 
                   </div>
                   <p class="fw-bolder">Add Comment</p>
                   <form class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
@@ -76,7 +76,7 @@ export default (coin) => {
       });
     })
     .then(async () => {
-      await commentFetch(coin)
-      await commentSubmitHandler(coin)
-    })
+      await commentFetch(coin);
+      await commentSubmitHandler(coin);
+    });
 };
