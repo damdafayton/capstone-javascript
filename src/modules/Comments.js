@@ -20,10 +20,8 @@ export function commentsPopulate(coin) {
         allComments.forEach((eachComment) => {
           const { creation_date: cd, comment: c, username: u } = eachComment;
           const p = document.createElement('p');
-          const spanCounter = document.querySelector('#comments > p > span');
           p.innerText = `${cd} - ${c} - by ${u}`;
           p.classList.add('text-start');
-          spanCounter.innerText = `(${commentCount})`;
           comments.appendChild(p);
         });
         comments.classList.remove('d-none');
