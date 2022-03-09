@@ -1,7 +1,3 @@
-export default function populateHome() {
-
-}
-
 const getData = async (request) => {
   const response = await request.get();
   // console.log(response)

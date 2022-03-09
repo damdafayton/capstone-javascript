@@ -1,6 +1,5 @@
-import { commentFetch, commentSubmitHandler } from './comments';
-
-const apiUrlForCoin = (coin) => `https://api.coingecko.com/api/v3/coins/${coin}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
+import { commentsPopulate, commentSubmitHandler } from './comments';
+import { apiCoin } from './api';
 
 const readableNumbers = (int) => int.toString()
   .split('').reverse()
@@ -16,7 +15,7 @@ const clickHandler = (coin) => {
   const popupFrame = document.querySelector('#popup-frame');
   const popupInner = popupFrame.querySelector('#popup-inner');
   popupFrame.classList.remove('d-none');
-  fetch(apiUrlForCoin(coin))
+  fetch(apiCoin(coin))
     .then((result) => result.json())
     .then((parsed) => {
       popupInner.innerHTML = '';
@@ -75,7 +74,7 @@ const clickHandler = (coin) => {
       });
     })
     .then(async () => {
-      await commentFetch(coin);
+      await commentsPopulate(coin);
       commentSubmitHandler(coin);
     });
 };

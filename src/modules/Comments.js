@@ -6,8 +6,12 @@ import { apiInvolvement, appID } from './api';
 //   .then(() => console.log(appID));
 // temporary code ends
 
-export function commentFetch(coin) {
-  return fetch(`${apiInvolvement + appID}/comments?item_id=${coin}`)
+function commentsFetch(coin) {
+  return fetch(`${apiInvolvement + appID}/comments?item_id=${coin}`);
+}
+
+export function commentsPopulate(coin) {
+  commentsFetch(coin)
     .then((response) => response.status === 200 && response.json())
     .then((allComments) => {
       if (allComments.length > 0) {
@@ -25,20 +29,22 @@ export function commentFetch(coin) {
     });
 }
 
-export function commentSubmitHandler(id) {
+function commentSubmitToApi(body) {
+  return fetch(`${apiInvolvement + appID}/comments`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body,
+  });
+}
+
+export function commentSubmitHandler(coinId) {
   const formBtn = document.querySelector('#submit-form > button');
-  console.log('comment submit handler ', formBtn);
   formBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const form = formBtn.parentElement;
     const { username: { value: username }, comment: { value: comment } } = form;
-    console.log({ id, username, comment });
-
-    fetch(`${apiInvolvement + appID}/comments`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ item_id: id, username, comment }),
-    })
-      .then((response) => response.status === 201 && commentFetch(id));
+    const body = JSON.stringify({ item_id: coinId, username, comment });
+    commentSubmitToApi(body)
+      .then((response) => response.status === 201 && commentsPopulate(coinId));
   });
 }
