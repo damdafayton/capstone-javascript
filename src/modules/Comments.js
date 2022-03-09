@@ -9,12 +9,11 @@ import { apiInvolvement, appID } from './api';
 export function commentFetch(coin) {
   return fetch(`${apiInvolvement + appID}/comments?item_id=${coin}`)
     .then((response) => response.status === 200 && response.json())
-    .then((parsed) => {
-      console.log(parsed);
-      if (parsed.length > 0) {
+    .then((allComments) => {
+      if (allComments.length > 0) {
         const comments = document.querySelector('#comments');
         comments.innerHTML = '<p class="fw-bolder">Comments</p>';
-        parsed.forEach((eachComment) => {
+        allComments.forEach((eachComment) => {
           const { creation_date: cd, comment: c, username: u } = eachComment;
           const p = document.createElement('p');
           p.innerText = `${cd} - ${c} - by ${u}`;
