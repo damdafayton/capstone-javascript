@@ -16,7 +16,7 @@ export function commentsPopulate(coin) {
     .then((allComments) => {
       if (allComments.length > 0) {
         const comments = document.querySelector('#comments');
-        comments.innerHTML = '<p class="fw-bolder">Comments</p>';
+        comments.innerHTML = `<p class="fw-bolder">Comments (${allComments.length})</p>`;
         allComments.forEach((eachComment) => {
           const { creation_date: cd, comment: c, username: u } = eachComment;
           const p = document.createElement('p');
