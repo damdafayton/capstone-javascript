@@ -8,9 +8,7 @@ const getData = async (request) => {
   const data = response.json();
   return data;
 };
-const cryptoCount = (array) => {
-  return array.length;
-}
+const cryptoCount = (array) => array.length;
 
 const createCoinElement = (coin) => `<li><ul class="coin">
                        <li>${coin.market_cap_rank}</li>

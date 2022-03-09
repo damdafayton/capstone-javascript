@@ -1,11 +1,9 @@
 import './style.scss';
 import { addToDom, cryptoCount, getData } from './modules/Home';
 import { request } from './modules/api';
-import { addClickHandlers } from './modules/popup';
+import addPopupClickHandlers from './modules/PopUp';
 
 const coins = document.querySelector('.coins');
 
 addToDom(request, coins)
-    .then(() => { addClickHandlers() })
-
-
+  .then(() => { addPopupClickHandlers(); });

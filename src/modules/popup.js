@@ -12,19 +12,6 @@ const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
 const symbolMap = { usd: '$' };
 
-export const addClickHandlers = () => {
-  const coins = document.querySelectorAll('.coins > li')
-  console.log('>> ', coins)
-  coins.forEach(coin => {
-    const buyBtn = coin.querySelector('.buyButton')
-    console.log(buyBtn)
-    buyBtn.addEventListener('click', () => {
-      const coinName = coin.querySelector('.coinIcons > strong').innerText
-      clickHandler(coinName)
-    })
-  })
-}
-
 const clickHandler = (coin) => {
   const popupFrame = document.querySelector('#popup-frame');
   const popupInner = popupFrame.querySelector('#popup-inner');
@@ -43,7 +30,7 @@ const clickHandler = (coin) => {
         market_data: { total_volume: { [baseCurrency]: totalVolume } },
         market_data: {
           price_change_percentage_24h: priceChange24H,
-          price_change_percentage_1y: priceChange1Y
+          price_change_percentage_1y: priceChange1Y,
         },
       } = parsed;
       popupInner.innerHTML += `
@@ -52,7 +39,7 @@ const clickHandler = (coin) => {
                 <img src="${imageSrc}">            
                 <h2 class="mt-3">${name}</h2>
                 <div class="mb-3">
-                    24H: <span class=${priceChange24H < 0 ? 'value-drop' : 'value-increase'}>${symbolMap[baseCurrency]}${digitRemover(priceChange24H)}</span>
+                    24H: <span class=${priceChange24H < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange24H)}%</span>
                     1Y: <span class=${priceChange1Y < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange1Y)}%</span>
                 </div>
                 <div class="row row-cols-2">
@@ -71,10 +58,9 @@ const clickHandler = (coin) => {
                 </div>
                 <div>
                   <div id="comments" class="d-none">
-                    <p class="fw-bolder">Comments</p> 
                   </div>
                   <p class="fw-bolder">Add Comment</p>
-                  <form class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
+                  <form id="submit-form" class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
                     <input type="text" name="username" placeholder="username">
                     <textarea type="text" name="comment" placeholder="write your comment here"></textarea>
                     <button>Submit</button>
@@ -90,6 +76,18 @@ const clickHandler = (coin) => {
     })
     .then(async () => {
       await commentFetch(coin);
-      await commentSubmitHandler(coin);
+      commentSubmitHandler(coin);
     });
+};
+
+export default () => {
+  const coins = document.querySelectorAll('.coins > li');
+  coins.forEach((coin) => {
+    const buyBtn = coin.querySelector('.buyButton');
+    buyBtn.addEventListener('click', () => {
+      const coinName = coin.querySelector('.coinIcons > strong').innerText;
+      console.log(coinName);
+      clickHandler('bitcoin');
+    });
+  });
 };
