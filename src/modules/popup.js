@@ -11,15 +11,16 @@ const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
 const symbolMap = { usd: '$' };
 
+const fetchCoinData = (coin) => fetch(apiCoin(coin)).then((result) => result.json());
+
 const clickHandler = (coin) => {
   const popupFrame = document.querySelector('#popup-frame');
   const popupInner = popupFrame.querySelector('#popup-inner');
   popupFrame.classList.remove('d-none');
-  fetch(apiCoin(coin))
-    .then((result) => result.json())
-    .then((parsed) => {
+  fetchCoinData(coin)
+    .then((coinData) => {
       popupInner.innerHTML = '';
-      console.log(parsed);
+      console.log(coinData);
       const {
         name,
         symbol,
@@ -31,7 +32,7 @@ const clickHandler = (coin) => {
           price_change_percentage_24h: priceChange24H,
           price_change_percentage_1y: priceChange1Y,
         },
-      } = parsed;
+      } = coinData;
       popupInner.innerHTML += `
             <div class="position-relative p-3 m-3 border border-2 border-dark">
                 <span class="position-absolute cursor-pointer" id="popup-close">X</span>
@@ -73,10 +74,8 @@ const clickHandler = (coin) => {
         popupFrame.classList.add('d-none');
       });
     })
-    .then(async () => {
-      await commentsPopulate(coin);
-      commentSubmitHandler(coin);
-    });
+    .then(() => commentsPopulate(coin))
+    .then(() => commentSubmitHandler(coin));
 };
 
 export default () => {
