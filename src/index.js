@@ -36,3 +36,5 @@ const addToDom = async (request, ul) => {
 };
 
 addToDom(request, coins);
+
+
