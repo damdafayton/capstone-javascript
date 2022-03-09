@@ -1,18 +1,12 @@
-export default function populateHome() {
-
-}
-
 const getData = async (request) => {
-    const response = await request.get();
-    // console.log(response)
-    const data = response.json();
-    return data;
-  };
-const cryptoCount=(array)=>{
-    return array.length;
-}  
-  
-  const createCoinElement = (coin) => `<li><ul class="coin">
+  const response = await request.get();
+  // console.log(response)
+  const data = response.json();
+  return data;
+};
+const cryptoCount = (array) => array.length;
+
+const createCoinElement = (coin) => `<li><ul class="coin">
                        <li>${coin.market_cap_rank}</li>
                        <li class="coinIcons"><img class="coinImage" src=${coin.image} alt='coin'/><strong>${coin.name}</strong></li>
                        <li>${coin.symbol}
@@ -24,14 +18,14 @@ const cryptoCount=(array)=>{
                        <li>${coin.circulating_supply}</li>
                    </ul>
                 </li>`;
-  const addToDom = async (request, ul) => {
-    const result = await getData(request);
-    console.log(result);
-    ul.innerHTML = '';
-    console.log('tag element::', ul);
-    for (let i = 0; i < 10; i += 1) {
-      ul.innerHTML += createCoinElement(result[i]);
-    }
-  };
+const addToDom = async (request, ul) => {
+  const result = await getData(request);
+  console.log(result);
+  ul.innerHTML = '';
+  console.log('tag element::', ul);
+  for (let i = 0; i < 10; i += 1) {
+    ul.innerHTML += createCoinElement(result[i]);
+  }
+};
 
-  export {addToDom, getData, cryptoCount};
+export { addToDom, getData, cryptoCount };
