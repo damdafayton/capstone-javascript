@@ -14,6 +14,7 @@
 ## Getting Started
 
 - Clone the repo
+- $ `npm run build`
 - Click `dist/index.html`
 
 
