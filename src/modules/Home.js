@@ -2,6 +2,8 @@ export default function populateHome() {
 
 }
 
+
+
 const getData = async (request) => {
     const response = await request.get();
     // console.log(response)
@@ -24,14 +26,19 @@ const cryptoCount=(array)=>{
                        <li>${coin.circulating_supply}</li>
                    </ul>
                 </li>`;
-  const addToDom = async (request, ul) => {
+  const addToDom = async (request, ul, coinsCountContainer, displayFrom=0) => {
     const result = await getData(request);
     console.log(result);
+    coinsCountContainer.innerHTML= cryptoCount(result);
     ul.innerHTML = '';
     console.log('tag element::', ul);
-    for (let i = 0; i < 10; i += 1) {
+    for (let i = displayFrom; i < 10; i += 1) {
       ul.innerHTML += createCoinElement(result[i]);
     }
   };
+
+  const displayPage=(pageNumber,)=>{
+      
+  }
 
   export {addToDom, getData, cryptoCount};

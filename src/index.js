@@ -2,8 +2,10 @@ import './style.scss';
 import { addToDom , cryptoCount, getData} from './modules/Home';
 import { request } from './modules/api';
 
-const coins = document.querySelector('.coins');
+const listCoinsContainer = document.querySelector('.coins');
+const coinsCountContainer = document.querySelector('.cryptoCounter');
 
-addToDom(request, coins);
+
+addToDom(request, listCoinsContainer, coinsCountContainer);
 
 
