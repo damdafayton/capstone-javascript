@@ -13,14 +13,16 @@ export function commentFetch(coin) {
     .then((response) => response.json())
     .then((parsed) => {
       console.log(parsed);
-      if (parsed.length > 0) {
+      const commentCount = parsed.length;
+      if (commentCount > 0) {
         const comments = document.querySelector('#comments');
-        comments.innerHTML = '';
         parsed.forEach((eachComment) => {
           const { creation_date: cd, comment: c, username: u } = eachComment;
           const p = document.createElement('p');
+          const spanCounter = document.querySelector('#comments > p > span');
           p.innerText = `${cd} - ${c} - by ${u}`;
           p.classList.add('text-start');
+          spanCounter.innerText = `(${commentCount})`;
           comments.appendChild(p);
         });
         comments.classList.remove('d-none');
@@ -34,7 +36,6 @@ export function commentSubmitHandler(id) {
     e.preventDefault();
     const form = formBtn.parentElement;
     const { username: { value: username }, comment: { value: comment } } = form;
-    console.log({ id, username, comment });
 
     fetch(`${apiInvolvement + appID}/comments`, {
       method: 'POST',

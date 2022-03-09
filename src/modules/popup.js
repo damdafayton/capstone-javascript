@@ -71,7 +71,7 @@ const clickHandler = (coin) => {
                 </div>
                 <div>
                   <div id="comments" class="d-none">
-                    <p class="fw-bolder">Comments</p> 
+                    <p class="fw-bolder">Comments <span></span></p> 
                   </div>
                   <p class="fw-bolder">Add Comment</p>
                   <form class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
