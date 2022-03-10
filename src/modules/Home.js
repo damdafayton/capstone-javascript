@@ -1,5 +1,6 @@
 import { addCoinLikes } from './Likes';
-
+import { addLikeListner } from './Likes';
+import addPopupClickHandlers from './PopUp';
 export default function populateHome() {
 
 }
@@ -42,7 +43,10 @@ const displayPage = (pageControlList, request, ul, coinsCountContainer) => {
     element.addEventListener('click', () => {
       pageControlList.forEach((item) => item.classList.remove('selectedPage'));
       element.classList.add('selectedPage');
-      createCoinsList(request, ul, coinsCountContainer, element.id * 10);
+      createCoinsList(request, ul, coinsCountContainer, element.id * 10).then(() => {
+        addLikeListner();
+        addPopupClickHandlers();
+      });
     });
   });
 };
