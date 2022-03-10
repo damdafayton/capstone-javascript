@@ -7,7 +7,7 @@ const request = new Request(coinsUrl);
 const requestInvolvement = new Request(apiInvolvement);
 //export {request, requestInvolvement};
 //const apiInvolvement = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
-//const apiCoin = (coin) => `https://api.coingecko.com/api/v3/coins/${coin}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
+const apiCoin = (coin) => `https://api.coingecko.com/api/v3/coins/${coin}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
 
 export {
   request, requestInvolvement,apiInvolvement, appID, apiCoin,

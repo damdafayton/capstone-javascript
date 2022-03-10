@@ -3,7 +3,7 @@ import {cryptoCount, getData, displayPage, createCoinsList} from './modules/Home
 import { request, requestInvolvement } from './modules/api';
 import Comments from './modules/Comments';
 import {addLikeListner,addLikesToList} from './modules/Likes';
-import { addToDom, cryptoCount, getData } from './modules/Home';
+//import { addToDom, cryptoCount, getData } from './modules/Home';
 import addPopupClickHandlers from './modules/PopUp';
 
 
@@ -14,12 +14,14 @@ const paginationController = document.querySelectorAll('.page');
 
 
 
-createCoinsList(request, listCoinsContainer, coinsCountContainer).then(() => { addPopupClickHandlers(); });
+createCoinsList(request, listCoinsContainer, coinsCountContainer).then(() => { 
+    addLikeListner();
+    addPopupClickHandlers(); });
 /*              
 .then(()=>{ 
                     addLikesToList();   
                 })
-                .then(()=>  {addLikeListner();
+                .then(()=>  {
                              
                 });*/
 displayPage(paginationController,request, listCoinsContainer, coinsCountContainer);

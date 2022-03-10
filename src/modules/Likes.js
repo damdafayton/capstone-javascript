@@ -1,9 +1,7 @@
 import { requestInvolvement } from './api';
 
 const addLike=(coinId)=>{
-   var response= requestInvolvement.post('likes',{item_id:coinId});
-   var res=response.json();
-   return res;
+   return requestInvolvement.post('likes',{item_id:coinId});
 }
 const getLikes=async(coinId)=>{
     var res=await requestInvolvement.get(`likes?item_id=${coinId}`);
@@ -11,22 +9,25 @@ const getLikes=async(coinId)=>{
     return result;
 }
 
-// const addLikeListner=()=>{
-//     const likeIcons = document.querySelectorAll('.likeBtn');
-//     likeIcons.forEach(icon=>icon.addEventListener('click',()=>{
-//         addLike(icon.id);
-//         icon.querySelector('.fa-heart').classList.add('liked');
-//     }))
-// }
-
-const addLikeBtnListner=async(coinId,btn)=>{
-    btn.addEventListener('click',()=>{
-      var res = await addLike(coinId);
-      console.log(res);
-       btn.querySelector('.fa-heart').classList.add('liked'); 
-    })
-   
+const addLikeListner=()=>{
+    const likeIcons = document.querySelectorAll('.likeBtn');
+    likeIcons.forEach(icon=>icon.addEventListener('click',async()=>{
+        addLike(icon.id.split('-')[1]);
+        await addCoinLikes(icon.id.split('-')[1],icon);
+        icon.querySelector('.fa-heart').classList.add('liked');
+    }))
 }
+
+// const addLikeBtnListner=(coinId,btn)=>{
+//     console.log(btn);
+//      btn.addEventListener('click',async()=>{
+      
+//       var res = await addLike(coinId);
+//       console.log(res);
+//        btn.querySelector('.fa-heart').classList.add('liked'); 
+//     })
+   
+// }
 
 // const addLikesToList=async()=>{
 //     const likeIcons = document.querySelectorAll('.likeBtn');
@@ -44,4 +45,4 @@ const addCoinLikes=async(coinId,likeIcon)=>{
         likeIcon.querySelector('p').innerHTML=`${likess?likess.likes:0}`;
 }
 
-export {addLike, getLikes,addCoinLikes,addLikeBtnListner};
+export {addLike, getLikes,addCoinLikes,addLikeListner};

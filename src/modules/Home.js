@@ -16,7 +16,7 @@ const cryptoCount = (array) => array.length;
 const createCoinElement = (coin) => `<li><ul class="coin">
                        <li>${coin.market_cap_rank}</li>
                        <li class="coinIcons"><img class="coinImage" src=${coin.image} alt='coin'/><strong>${coin.name}</strong></li>
-                       <li class="likeIcons"><button id='likeBtn${coin.id}' class="likeBtn" ><p></p><i class="fas fa-heart"></i></button></li>
+                       <li class="likeIcons"><button id='likeBtn-${coin.id}' class="likeBtn" ><p></p><i class="fas fa-heart"></i></button></li>
                        <li>${coin.symbol}
                        <button class="buyButton" >Buy
                        <i class="fas fa-shopping-basket"></i></button>
@@ -36,8 +36,8 @@ const createCoinElement = (coin) => `<li><ul class="coin">
     for (let i = displayFrom; i < (displayFrom+10); i += 1) {
       ul.innerHTML += createCoinElement(result[i]);
       //after creating list item i add likes and likeeventistner to it
-     await addCoinLikes(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')));
-     await addLikeBtnListner(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')))
+     await addCoinLikes(result[i].id,ul.querySelector(['#likeBtn-',result[i].id].join('')));
+    // addLikeBtnListner(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')));
     }
   };
 
