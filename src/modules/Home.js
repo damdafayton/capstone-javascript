@@ -43,6 +43,7 @@ const displayPage = (pageControlList, request, ul, coinsCountContainer) => {
     element.addEventListener('click', () => {
       pageControlList.forEach((item) => item.classList.remove('selectedPage'));
       element.classList.add('selectedPage');
+      //add popupClickHandler and likelistner to all dispalyed pages
       createCoinsList(request, ul, coinsCountContainer, element.id * 10).then(() => {
         addLikeListner();
         addPopupClickHandlers();
