@@ -1,8 +1,9 @@
 import { requestInvolvement } from './api';
 
 const addLike=(coinId)=>{
-    console.log('like added',requestInvolvement.post('likes',{item_id:coinId}));
-
+   var response= requestInvolvement.post('likes',{item_id:coinId});
+   var res=response.json();
+   return res;
 }
 const getLikes=async(coinId)=>{
     var res=await requestInvolvement.get(`likes?item_id=${coinId}`);
@@ -18,9 +19,10 @@ const getLikes=async(coinId)=>{
 //     }))
 // }
 
-const addLikeBtnListner=(coinId,btn)=>{
+const addLikeBtnListner=async(coinId,btn)=>{
     btn.addEventListener('click',()=>{
-        addLike(coinId);
+      var res = await addLike(coinId);
+      console.log(res);
        btn.querySelector('.fa-heart').classList.add('liked'); 
     })
    
