@@ -31,7 +31,7 @@ const addCoinLikes = async (coinId, likeIcon) => {
   const myLikes = await getLikes(coinId);
   const likess = myLikes.filter((item) => item.item_id === coinId)[0];
   console.log(likess ? likess.likes : 0);
-  likeIcon.querySelector('p').innerHTML = `${likess ? likess.likes : 0}`;
+  likeIcon.querySelector('p').innerHTML = `${likess ? `${likess.likes} Likes` : '0 Likes'}`;
 };
 
 const addLikeListner = () => {
