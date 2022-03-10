@@ -1,32 +1,21 @@
 import { requestInvolvement } from './api';
 
-const addLike=(coinId)=>{
-   return requestInvolvement.post('likes',{item_id:coinId});
-}
-const getLikes=async(coinId)=>{
-    var res=await requestInvolvement.get(`likes?item_id=${coinId}`);
-   var result= res.json();
-    return result;
-}
-
-const addLikeListner=()=>{
-    const likeIcons = document.querySelectorAll('.likeBtn');
-    likeIcons.forEach(icon=>icon.addEventListener('click',async()=>{
-        addLike(icon.id.split('-')[1]);
-        await addCoinLikes(icon.id.split('-')[1],icon);
-        icon.querySelector('.fa-heart').classList.add('liked');
-    }))
-}
+const addLike = (coinId) => requestInvolvement.post('likes', { item_id: coinId });
+const getLikes = async (coinId) => {
+  const res = await requestInvolvement.get(`likes?item_id=${coinId}`);
+  const result = res.json();
+  return result;
+};
 
 // const addLikeBtnListner=(coinId,btn)=>{
 //     console.log(btn);
 //      btn.addEventListener('click',async()=>{
-      
+
 //       var res = await addLike(coinId);
 //       console.log(res);
-//        btn.querySelector('.fa-heart').classList.add('liked'); 
+//        btn.querySelector('.fa-heart').classList.add('liked');
 //     })
-   
+
 // }
 
 // const addLikesToList=async()=>{
@@ -38,11 +27,22 @@ const addLikeListner=()=>{
 //     }
 // }
 
-const addCoinLikes=async(coinId,likeIcon)=>{
-        var myLikes= await getLikes(coinId);
-        var likess=myLikes.filter(item=>item.item_id===coinId)[0];
-        console.log(likess?likess.likes:0);
-        likeIcon.querySelector('p').innerHTML=`${likess?likess.likes:0}`;
-}
+const addCoinLikes = async (coinId, likeIcon) => {
+  const myLikes = await getLikes(coinId);
+  const likess = myLikes.filter((item) => item.item_id === coinId)[0];
+  console.log(likess ? likess.likes : 0);
+  likeIcon.querySelector('p').innerHTML = `${likess ? likess.likes : 0}`;
+};
 
-export {addLike, getLikes,addCoinLikes,addLikeListner};
+const addLikeListner = () => {
+  const likeIcons = document.querySelectorAll('.likeBtn');
+  likeIcons.forEach((icon) => icon.addEventListener('click', async () => {
+    addLike(icon.id.split('-')[1]);
+    await addCoinLikes(icon.id.split('-')[1], icon);
+    icon.querySelector('.fa-heart').classList.add('liked');
+  }));
+};
+
+export {
+  addLike, getLikes, addCoinLikes, addLikeListner,
+};

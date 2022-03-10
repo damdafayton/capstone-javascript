@@ -1,9 +1,8 @@
+import { addCoinLikes } from './Likes';
+
 export default function populateHome() {
 
 }
-
-
-import {addCoinLikes,addLikeBtnListner} from './Likes'
 
 const getData = async (request) => {
   const response = await request.get();
@@ -28,27 +27,28 @@ const createCoinElement = (coin) => `<li><ul class="coin">
                    </ul>
                 </li>`;
 
-
-  const createCoinsList = async (request, ul, coinsCountContainer, displayFrom=0) => {
-    const result = await getData(request);
-    coinsCountContainer.innerHTML= cryptoCount(result);
-    ul.innerHTML = '';
-    for (let i = displayFrom; i < (displayFrom+10); i += 1) {
-      ul.innerHTML += createCoinElement(result[i]);
-      //after creating list item i add likes and likeeventistner to it
-     await addCoinLikes(result[i].id,ul.querySelector(['#likeBtn-',result[i].id].join('')));
+const createCoinsList = async (request, ul, coinsCountContainer, displayFrom = 0) => {
+  const result = await getData(request);
+  coinsCountContainer.innerHTML = cryptoCount(result);
+  ul.innerHTML = '';
+  for (let i = displayFrom; i < (displayFrom + 10); i += 1) {
+    ul.innerHTML += createCoinElement(result[i]);
+    // after creating list item i add likes and likeeventistner to it
+    await addCoinLikes(result[i].id, ul.querySelector(['#likeBtn-', result[i].id].join('')));
     // addLikeBtnListner(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')));
-    }
-  };
-
-  const displayPage=(pageControlList,request, ul, coinsCountContainer)=>{
-      pageControlList.forEach(element => {
-          element.addEventListener('click',(e)=>{
-            pageControlList.forEach(item=>item.classList.remove('selectedPage'));
-            element.classList.add('selectedPage');
-            createCoinsList(request, ul, coinsCountContainer,element.id*10);
-          })
-      });
   }
+};
 
-  export {createCoinsList, getData, cryptoCount, displayPage};
+const displayPage = (pageControlList, request, ul, coinsCountContainer) => {
+  pageControlList.forEach((element) => {
+    element.addEventListener('click', () => {
+      pageControlList.forEach((item) => item.classList.remove('selectedPage'));
+      element.classList.add('selectedPage');
+      createCoinsList(request, ul, coinsCountContainer, element.id * 10);
+    });
+  });
+};
+
+export {
+  createCoinsList, getData, cryptoCount, displayPage,
+};
