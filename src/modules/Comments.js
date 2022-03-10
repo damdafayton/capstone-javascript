@@ -2,11 +2,11 @@ import { apiInvolvement, appID } from './api';
 
 function commentsFetch(coin) {
   return fetch(`${apiInvolvement + appID}/comments?item_id=${coin}`)
-    .then((response) => response.status === 200 && response.json())
+    .then((response) => response.status === 200 && response.json());
 }
 
 export function commentCounter() {
-  return document.querySelectorAll('#comments > p').length
+  return document.querySelectorAll('#comments > p').length;
 }
 
 export function commentsPopulate(coin) {
@@ -25,8 +25,7 @@ export function commentsPopulate(coin) {
         comments.classList.remove('d-none');
       }
     })
-    .then(() => console.log(commentCounter())
-    )
+    .then(() => console.log(commentCounter()));
 }
 
 function commentSubmitToApi(body) {

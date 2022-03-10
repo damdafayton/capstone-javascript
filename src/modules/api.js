@@ -15,4 +15,4 @@ export {
 //   .then((result) => result.text())
 //   .then((parsed) => { appID = parsed; })
 //   .then(() => console.log(appID));
-// 
+//
