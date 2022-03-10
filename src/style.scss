@@ -1,3 +1,5 @@
+@import "popup";
+
 * {
   margin: 0%;
   padding: 0%;
@@ -40,40 +42,6 @@ button {
 .footer2 {
   width: 100%;
   text-align: center;
-}
-
-#popup-frame {
-  background-color: rgb(0 0 0 / 62%);
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  #popup-inner {
-    max-height: 80vh;
-    background-color: white;
-    color: black;
-  }
-
-  #popup-close {
-    z-index: 10;
-    top: 5px;
-    right: 8px;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-  }
-}
-
-h2 {
-  span {
-    font-size: 1rem;
-  }
 }
 
 .value-drop {

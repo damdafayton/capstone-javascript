@@ -6,16 +6,14 @@ export default function populateHome() {
 import {addCoinLikes,addLikeBtnListner} from './Likes'
 
 const getData = async (request) => {
-    const response = await request.get();
-    // console.log(response)
-    const data = response.json();
-    return data;
-  };
-const cryptoCount=(array)=>{
-    return array.length;
-}  
-  
-  const createCoinElement = (coin) => `<li><ul class="coin">
+  const response = await request.get();
+  // console.log(response)
+  const data = response.json();
+  return data;
+};
+const cryptoCount = (array) => array.length;
+
+const createCoinElement = (coin) => `<li><ul class="coin">
                        <li>${coin.market_cap_rank}</li>
                        <li class="coinIcons"><img class="coinImage" src=${coin.image} alt='coin'/><strong>${coin.name}</strong></li>
                        <li class="likeIcons"><button id='likeBtn${coin.id}' class="likeBtn" ><p></p><i class="fas fa-heart"></i></button></li>
