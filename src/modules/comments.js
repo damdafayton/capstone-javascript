@@ -1,7 +1,7 @@
-import { apiInvolvement, appID } from './api';
+import { apiInvolvement } from './api';
 
 function commentsFetch(coin) {
-  return fetch(`${apiInvolvement + appID}/comments?item_id=${coin}`)
+  return fetch(`${apiInvolvement}comments?item_id=${coin}`)
     .then((response) => response.status === 200 && response.json());
 }
 
@@ -25,11 +25,10 @@ export function commentsPopulate(coin) {
         comments.classList.remove('d-none');
       }
     })
-    .then(() => console.log(commentCounter()));
 }
 
 function commentSubmitToApi(body) {
-  return fetch(`${apiInvolvement + appID}/comments`, {
+  return fetch(`${apiInvolvement}comments`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body,
