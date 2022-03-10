@@ -6,7 +6,6 @@ export default function populateHome() {
 
 const getData = async (request) => {
   const response = await request.get();
-  // console.log(response)
   const data = response.json();
   return data;
 };
@@ -35,7 +34,6 @@ const createCoinsList = async (request, ul, coinsCountContainer, displayFrom = 0
     ul.innerHTML += createCoinElement(result[i]);
     // after creating list item i add likes and likeeventistner to it
     await addCoinLikes(result[i].id, ul.querySelector(['#likeBtn-', result[i].id].join('')));
-    // addLikeBtnListner(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')));
   }
 };
 

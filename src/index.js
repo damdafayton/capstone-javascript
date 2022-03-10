@@ -13,15 +13,6 @@ createCoinsList(request, listCoinsContainer, coinsCountContainer).then(() => {
   addLikeListner();
   addPopupClickHandlers();
 });
-/*
-.then(()=>{
-                    addLikesToList();
-                })
-                .then(()=>  {
 
-                }); */
 displayPage(paginationController, request, listCoinsContainer, coinsCountContainer);
-// var res=requestInvolvement.get(`comments?item_id=bitcoin`);
-// res.then(response=>response.json()).then(result=>console.log(result));
 
-// addToDom(request, coins)
