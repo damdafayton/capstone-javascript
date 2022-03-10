@@ -14,7 +14,6 @@
 ## Getting Started
 
 > To run production
-- Clone the repo
 - $ `./dist/index.html`
 
 > To run development
