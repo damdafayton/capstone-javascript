@@ -37,6 +37,7 @@ const cryptoCount=(array)=>{
     ul.innerHTML = '';
     for (let i = displayFrom; i < (displayFrom+10); i += 1) {
       ul.innerHTML += createCoinElement(result[i]);
+      //after creating list item i add likes and likeeventistner to it
       addCoinLikes(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')));
       addLikeBtnListner(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')))
     }
