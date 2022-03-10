@@ -6,3 +6,5 @@ ignore/
 *.bat*
 .server.js
 .index.html
+js/
+server.js
