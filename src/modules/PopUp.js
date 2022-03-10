@@ -59,7 +59,7 @@ const clickHandler = (coin) => {
                 <div>
                   <div id="comments" class="d-none">
                   </div>
-                  <p class="fw-bolder">Add Comment</p>
+                  <h3 class="fw-bolder fs-5">Add Comment</h3>
                   <form id="submit-form" class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
                     <input type="text" name="username" placeholder="username">
                     <textarea type="text" name="comment" placeholder="write your comment here"></textarea>
@@ -81,11 +81,12 @@ const clickHandler = (coin) => {
 export default () => {
   const coins = document.querySelectorAll('.coins > li');
   coins.forEach((coin) => {
-    const buyBtn = coin.querySelector('.buyButton');
-    buyBtn.addEventListener('click', () => {
-      const coinName = coin.querySelector('.coinIcons > strong').innerText;
-      console.log(coinName);
-      clickHandler('bitcoin');
+    const btn = coin.querySelector('.buyButton');
+    btn.addEventListener('click', (e) => {
+      let coinName = e.currentTarget.parentElement.parentElement.querySelector('.likeBtn').id;
+      const dashIndex = coinName.indexOf('-');
+      coinName = coinName.slice(dashIndex + 1);
+      clickHandler(coinName);
     });
   });
 };

@@ -13,11 +13,16 @@
 
 ## Getting Started
 
-- Clone the repo
-- $ `npm run build`
-- Click `dist/index.html`
+> To run production
+- $ `./dist/index.html`
 
+> To run development
+- $ `npm install`
+- $ `npm start`
 
+> To test
+- npm i -g jest
+- $ `jest`
 
 ## Authors
 

@@ -37,7 +37,7 @@ const addCoinLikes = async (coinId, likeIcon) => {
 const addLikeListner = () => {
   const likeIcons = document.querySelectorAll('.likeBtn');
   likeIcons.forEach((icon) => icon.addEventListener('click', async () => {
-      var id = icon.id.split('-')[1];
+    const id = icon.id.split('-')[1];
     addLike(id);
     await addCoinLikes(id, icon);
     icon.querySelector('.fa-heart').classList.add('liked');
