@@ -1,9 +1,18 @@
 import './style.scss';
-import { addToDom /* cryptoCount, getData */ } from './modules/Home';
+import { displayPage, createCoinsList } from './modules/Home';
 import { request } from './modules/api';
+import { addLikeListner } from './modules/Likes';
+// import { addToDom, cryptoCount, getData } from './modules/Home';
 import addPopupClickHandlers from './modules/PopUp';
 
-const coins = document.querySelector('.coins');
+const listCoinsContainer = document.querySelector('.coins');
+const coinsCountContainer = document.querySelector('.cryptoCounter');
+const paginationController = document.querySelectorAll('.page');
 
-addToDom(request, coins)
-  .then(() => { addPopupClickHandlers(); });
+createCoinsList(request, listCoinsContainer, coinsCountContainer).then(() => {
+  addLikeListner();
+  addPopupClickHandlers();
+});
+
+displayPage(paginationController, request, listCoinsContainer, coinsCountContainer);
+
