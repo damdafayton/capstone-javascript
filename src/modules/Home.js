@@ -3,6 +3,7 @@ export default function populateHome() {
 }
 
 
+import {addCoinLikes,addLikeBtnListner} from './Likes'
 
 const getData = async (request) => {
     const response = await request.get();
@@ -17,21 +18,27 @@ const cryptoCount=(array)=>{
   const createCoinElement = (coin) => `<li><ul class="coin">
                        <li>${coin.market_cap_rank}</li>
                        <li class="coinIcons"><img class="coinImage" src=${coin.image} alt='coin'/><strong>${coin.name}</strong></li>
+                       <li class="likeIcons"><button id='likeBtn${coin.id}' class="likeBtn" ><p></p><i class="fas fa-heart"></i></button></li>
                        <li>${coin.symbol}
-                       <button class="buyButton">Buy
+                       <button class="buyButton" >Buy
                        <i class="fas fa-shopping-basket"></i></button>
                        </li>
                        <li> ${coin.current_price}$</li>
                        <li style="color:${coin.price_change_percentage_24h > 0 ? 'green' : 'red'}">${coin.price_change_percentage_24h}</li>
                        <li>${coin.circulating_supply}</li>
+                       <li><i class="fas fa-comment-alt" id=${coin.id}></i></li>
                    </ul>
                 </li>`;
-  const addToDom = async (request, ul, coinsCountContainer, displayFrom=0) => {
+
+
+  const createCoinsList = async (request, ul, coinsCountContainer, displayFrom=0) => {
     const result = await getData(request);
     coinsCountContainer.innerHTML= cryptoCount(result);
     ul.innerHTML = '';
     for (let i = displayFrom; i < (displayFrom+10); i += 1) {
       ul.innerHTML += createCoinElement(result[i]);
+      addCoinLikes(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')));
+      addLikeBtnListner(result[i].id,ul.querySelector(['#likeBtn',result[i].id].join('')))
     }
   };
 
@@ -40,9 +47,9 @@ const cryptoCount=(array)=>{
           element.addEventListener('click',(e)=>{
             pageControlList.forEach(item=>item.classList.remove('selectedPage'));
             element.classList.add('selectedPage');
-            addToDom(request, ul, coinsCountContainer,element.id*10);
+            createCoinsList(request, ul, coinsCountContainer,element.id*10);
           })
       });
   }
 
-  export {addToDom, getData, cryptoCount, displayPage};
+  export {createCoinsList, getData, cryptoCount, displayPage};
