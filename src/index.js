@@ -15,4 +15,3 @@ createCoinsList(request, listCoinsContainer, coinsCountContainer).then(() => {
 });
 
 displayPage(paginationController, request, listCoinsContainer, coinsCountContainer);
-

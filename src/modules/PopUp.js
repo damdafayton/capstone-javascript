@@ -81,11 +81,12 @@ const clickHandler = (coin) => {
 export default () => {
   const coins = document.querySelectorAll('.coins > li');
   coins.forEach((coin) => {
-    const buyBtn = coin.querySelector('.buyButton');
-    buyBtn.addEventListener('click', () => {
-      const coinName = coin.querySelector('.coinIcons > strong').innerText;
-      console.log(coinName);
-      clickHandler('bitcoin');
+    const btn = coin.querySelector('.buyButton');
+    btn.addEventListener('click', (e) => {
+      let coinName = e.currentTarget.parentElement.parentElement.querySelector('.likeBtn').id;
+      const dashIndex = coinName.indexOf('-');
+      coinName = coinName.slice(dashIndex + 1);
+      clickHandler(coinName);
     });
   });
 };

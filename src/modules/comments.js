@@ -1,13 +1,13 @@
-import { apiInvolvement, appID } from './api';
+import { apiInvolvement } from './api';
 // temporary code - get app id
 // fetch(apiInvolvement, { method: 'POST' })
 //   .then((result) => result.text())
-//   .then((parsed) => { appID = parsed; })
-//   .then(() => console.log(appID));
+//   .then((parsed) =>   parsed; })
+//   .then(() => console.lo);
 // temporary code ends
 
 function commentsFetch(coin) {
-  return fetch(`${apiInvolvement + appID}/comments?item_id=${coin}`);
+  return fetch(`${apiInvolvement}comments?item_id=${coin}`);
 }
 
 export function commentsPopulate(coin) {
@@ -30,7 +30,7 @@ export function commentsPopulate(coin) {
 }
 
 function commentSubmitToApi(body) {
-  return fetch(`${apiInvolvement + appID}/comments`, {
+  return fetch(`${apiInvolvement}comments`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body,
