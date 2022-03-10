@@ -17,6 +17,7 @@
 - $ `./dist/index.html`
 
 > To run development
+- $ `npm install`
 - $ `npm start`
 
 > To test
