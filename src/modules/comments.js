@@ -1,22 +1,20 @@
 import { apiInvolvement } from './api';
-// temporary code - get app id
-// fetch(apiInvolvement, { method: 'POST' })
-//   .then((result) => result.text())
-//   .then((parsed) =>   parsed; })
-//   .then(() => console.lo);
-// temporary code ends
 
 function commentsFetch(coin) {
-  return fetch(`${apiInvolvement}comments?item_id=${coin}`);
+  return fetch(`${apiInvolvement}comments?item_id=${coin}`)
+    .then((response) => response.status === 200 && response.json());
+}
+
+export function commentCounter() {
+  return document.querySelectorAll('#comments > p').length;
 }
 
 export function commentsPopulate(coin) {
   commentsFetch(coin)
-    .then((response) => response.status === 200 && response.json())
     .then((allComments) => {
       if (allComments.length > 0) {
         const comments = document.querySelector('#comments');
-        comments.innerHTML = `<p class="fw-bolder">Comments (${allComments.length})</p>`;
+        comments.innerHTML = `<h3 class="fw-bolder fs-5">Comments (${allComments.length})</h3>`;
         allComments.forEach((eachComment) => {
           const { creation_date: cd, comment: c, username: u } = eachComment;
           const p = document.createElement('p');
@@ -26,7 +24,7 @@ export function commentsPopulate(coin) {
         });
         comments.classList.remove('d-none');
       }
-    });
+    })
 }
 
 function commentSubmitToApi(body) {

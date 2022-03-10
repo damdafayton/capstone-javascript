@@ -11,3 +11,10 @@ const apiCoin = (coin) => `https://api.coingecko.com/api/v3/coins/${coin}?locali
 export {
   request, requestInvolvement, apiInvolvement, apiCoin,
 };
+
+// get app id
+// fetch(apiInvolvement, { method: 'POST' })
+//   .then((result) => result.text())
+//   .then((parsed) => { appID = parsed; })
+//   .then(() => console.log(appID));
+//

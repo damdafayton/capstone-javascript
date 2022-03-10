@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1646900096278" clover="3.2.0">
+  <project timestamp="1646900096278" name="All files">
+    <metrics statements="32" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="15" coveredmethods="2" elements="53" coveredelements="9" complexity="0" loc="32" ncloc="32" packages="1" files="3" classes="3"/>
+    <file name="api.js" path="D:\Damdafayton\microverse\module2\capstone-javascript\src\modules\api.js">
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+    </file>
+    <file name="comments.js" path="D:\Damdafayton\microverse\module2\capstone-javascript\src\modules\comments.js">
+      <metrics statements="24" coveredstatements="1" conditionals="6" coveredconditionals="0" methods="11" coveredmethods="1"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="13" count="0" type="stmt"/>
+      <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
+      <line num="23" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="41" count="0" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="46" count="0" type="stmt"/>
+      <line num="47" count="0" type="stmt"/>
+      <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+    </file>
+    <file name="request.js" path="D:\Damdafayton\microverse\module2\capstone-javascript\src\modules\request.js">
+      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="17" count="0" type="stmt"/>
+    </file>
+  </project>
+</coverage>
