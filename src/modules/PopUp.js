@@ -11,7 +11,7 @@ const readableNumbers = (int) => int.toString()
     : cn))
   .join('.');
 
-const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int)) || '-';
+const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
 const symbolMap = { usd: '$' };
 
@@ -43,9 +43,9 @@ const clickHandler = (coin) => {
                 <img src="${imageSrc}">            
                 <h2 class="mt-3">${name}</h2>
                 <div class="mb-3">
-                    24H: <span class=${priceChange24H < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange24H)}%</span>
-                    1Y: <span class=${priceChange1Y < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange1Y)}%</span>
-                </div>
+                    24H: <span class=${(digitRemover(priceChange24H) !== 0) && priceChange24H < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange24H) ? digitRemover(priceChange24H) + '$' : '-'}</span>
+                    1Y: <span class=${(digitRemover(priceChange24H) !== 0) && priceChange1Y < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange1Y) ? digitRemover(priceChange1Y) + '$' : '-'}</span >
+                </div >
                 <div class="row row-cols-2">
                     <div class="d-flex justify-content-center">
                     <ul class="text-start">
@@ -72,7 +72,7 @@ const clickHandler = (coin) => {
                     </div>
                   </form>
                 </div>
-            </div>`;
+            </div > `;
     })
     .then(() => {
       const popupClose = document.querySelector('#popup-close');
