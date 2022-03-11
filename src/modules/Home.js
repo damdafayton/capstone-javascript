@@ -29,7 +29,7 @@ const createCoinElement = (coin) => `<li><ul class="coin">
 
 const createCoinsList = async (request, ul, coinsCountContainer, displayFrom = 0) => {
   const result = await getData(request);
-  coinsCountContainer.innerHTML = `Cryptocurrencies(${cryptoCount(result)})`;
+  coinsCountContainer.innerHTML = `Cryptocurrencies(${result.length})`;
   ul.innerHTML = '';
   for (let i = displayFrom; i < (displayFrom + 20); i += 1) {
     ul.innerHTML += createCoinElement(result[i]);
