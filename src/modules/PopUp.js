@@ -91,4 +91,4 @@ export default () => {
   });
 };
 
-export {digitRemover};
+export { digitRemover };

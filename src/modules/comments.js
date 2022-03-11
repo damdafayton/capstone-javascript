@@ -24,7 +24,7 @@ export function commentsPopulate(coin) {
         });
         comments.classList.remove('d-none');
       }
-    })
+    });
 }
 
 function commentSubmitToApi(body) {
