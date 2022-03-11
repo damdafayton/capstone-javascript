@@ -8,3 +8,4 @@ ignore/
 .index.html
 js/
 server.js
+coverage/
