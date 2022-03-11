@@ -2,10 +2,14 @@ import { commentsPopulate, commentSubmitHandler } from './comments';
 import { apiCoin } from './api';
 
 const readableNumbers = (int) => int.toString()
-  .split('').reverse()
-  .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
-  .reverse()
-  .join('');
+  .split('.')
+  .map((cn, j) => (j === 0
+    ? cn.split('').reverse()
+      .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
+      .reverse()
+      .join('')
+    : cn))
+  .join('.');
 
 const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
@@ -39,9 +43,9 @@ const clickHandler = (coin) => {
                 <img src="${imageSrc}">            
                 <h2 class="mt-3">${name}</h2>
                 <div class="mb-3">
-                    24H: <span class=${priceChange24H < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange24H)}%</span>
-                    1Y: <span class=${priceChange1Y < 0 ? 'value-drop' : 'value-increase'}>${digitRemover(priceChange1Y)}%</span>
-                </div>
+                    24H: <span class=${digitRemover(priceChange24H) !== 0 ? priceChange24H < 0 ? 'value-drop' : 'value-increase' : null}>${digitRemover(priceChange24H) ? digitRemover(priceChange24H) + '%' : '-'}</span>
+                    1Y: <span class=${digitRemover(priceChange24H) !== 0 ? priceChange1Y < 0 ? 'value-drop' : 'value-increase' : null}>${digitRemover(priceChange1Y) ? digitRemover(priceChange1Y) + '%' : '-'}</span >
+                </div >
                 <div class="row row-cols-2">
                     <div class="d-flex justify-content-center">
                     <ul class="text-start">
@@ -61,12 +65,14 @@ const clickHandler = (coin) => {
                   </div>
                   <h3 class="fw-bolder fs-5">Add Comment</h3>
                   <form id="submit-form" class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
-                    <input type="text" name="username" placeholder="username">
-                    <textarea type="text" name="comment" placeholder="write your comment here"></textarea>
-                    <button>Submit</button>
+                    <div>
+                      <input class="form-control" type="text" name="username" placeholder="username">
+                      <textarea class="form-control mt-2" type="text" name="comment" placeholder="write your comment here"></textarea>
+                      <button class="btn btn-info text-white mt-2">Submit</button>
+                    </div>
                   </form>
                 </div>
-            </div>`;
+            </div > `;
     })
     .then(() => {
       const popupClose = document.querySelector('#popup-close');
