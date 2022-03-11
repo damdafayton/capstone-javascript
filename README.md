@@ -21,7 +21,7 @@
 - $ `npm start`
 
 > To test
-- npm i -g jest
+- $ `npm install -g jest`
 - $ `jest`
 
 ## Authors
