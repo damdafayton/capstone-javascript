@@ -1,6 +1,7 @@
-import { addCoinLikes } from './Likes';
-import { addLikeListner } from './Likes';
+import { addCoinLikes, addLikeListner } from './Likes';
+
 import addPopupClickHandlers from './PopUp';
+
 export default function populateHome() {
 
 }
@@ -29,7 +30,7 @@ const createCoinElement = (coin) => `<li><ul class="coin">
 
 const createCoinsList = async (request, ul, coinsCountContainer, displayFrom = 0) => {
   const result = await getData(request);
-  coinsCountContainer.innerHTML = `Cryptocurrencies(${cryptoCount(result)})`;
+  coinsCountContainer.innerHTML = `Cryptocurrencies(${result.length})`;
   ul.innerHTML = '';
   for (let i = displayFrom; i < (displayFrom + 20); i += 1) {
     ul.innerHTML += createCoinElement(result[i]);
@@ -43,7 +44,7 @@ const displayPage = (pageControlList, request, ul, coinsCountContainer) => {
     element.addEventListener('click', () => {
       pageControlList.forEach((item) => item.classList.remove('selectedPage'));
       element.classList.add('selectedPage');
-      //add popupClickHandler and likelistner to all dispalyed pages
+      // add popupClickHandler and likelistner to all dispalyed pages
       createCoinsList(request, ul, coinsCountContainer, element.id * 20).then(() => {
         addLikeListner();
         addPopupClickHandlers();
