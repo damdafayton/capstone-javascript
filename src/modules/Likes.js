@@ -24,7 +24,7 @@ const addLikesToList = async () => {
 };
 
 const updateLikes = (p) => {
-  p.innerHTML = `${parseInt(p.textContent.split(' ')[0], 10) + 1}`;
+  p.innerHTML = `${parseInt(p.textContent.split(' ')[0], 10) + 1} likes`;
 };
 
 const addLikeListner = () => {
