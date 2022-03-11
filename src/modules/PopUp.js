@@ -11,7 +11,7 @@ const readableNumbers = (int) => int.toString()
     : cn))
   .join('.');
 
-const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int)) ?? ;
+const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
 const symbolMap = { usd: '$' };
 
