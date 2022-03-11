@@ -5,6 +5,8 @@ this project is a web application that fetchs cryptocurrency data from a distant
 ![footer](https://user-images.githubusercontent.com/59707859/157871417-a00fd46c-c93b-4dfe-a016-7931ca138302.PNG)
 
 
+## video demo
+https://drive.google.com/file/d/1-xuiTCdHtBemcroUUKqWTBp7AIWeNW0O/view?usp=sharing
 ## Built With
 
 - HTML, CSS, JavaScript
