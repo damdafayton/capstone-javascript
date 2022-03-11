@@ -2,13 +2,16 @@ import { commentsPopulate, commentSubmitHandler } from './comments';
 import { apiCoin } from './api';
 
 const readableNumbers = (int) => int.toString()
-  .split('.').map((cn, j) => (j === 0 ? cn.split('').reverse()
-    .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
-    .reverse()
-    .join('') : cn))
+  .split('.')
+  .map((cn, j) => (j === 0 ?
+    cn.split('').reverse()
+      .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
+      .reverse()
+      .join('')
+    : cn))
   .join('.');
 
-const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
+const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int)) ?? ;
 const baseCurrency = 'usd';
 const symbolMap = { usd: '$' };
 
@@ -62,9 +65,11 @@ const clickHandler = (coin) => {
                   </div>
                   <h3 class="fw-bolder fs-5">Add Comment</h3>
                   <form id="submit-form" class="d-flex flex-column align-items-center row row-cols-md-2 row-cols-lg-3">
-                    <input type="text" name="username" placeholder="username">
-                    <textarea type="text" name="comment" placeholder="write your comment here"></textarea>
-                    <button>Submit</button>
+                    <div>
+                      <input class="form-control" type="text" name="username" placeholder="username">
+                      <textarea class="form-control mt-2" type="text" name="comment" placeholder="write your comment here"></textarea>
+                    </div>
+                    <button class="btn btn-info text-white mt-2">Submit</button>
                   </form>
                 </div>
             </div>`;
