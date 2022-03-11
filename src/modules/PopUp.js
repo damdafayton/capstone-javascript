@@ -3,8 +3,8 @@ import { apiCoin } from './api';
 
 const readableNumbers = (int) => int.toString()
   .split('.')
-  .map((cn, j) => (j === 0 ?
-    cn.split('').reverse()
+  .map((cn, j) => (j === 0
+    ? cn.split('').reverse()
       .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
       .reverse()
       .join('')
