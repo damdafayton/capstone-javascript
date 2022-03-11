@@ -2,10 +2,11 @@ import { commentsPopulate, commentSubmitHandler } from './comments';
 import { apiCoin } from './api';
 
 const readableNumbers = (int) => int.toString()
-  .split('').reverse()
-  .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
-  .reverse()
-  .join('');
+  .split('.').map((cn, j) => (j === 0 ? cn.split('').reverse()
+    .map((el, i) => ((i % 3 === 0 && i > 0) ? `${el},` : el))
+    .reverse()
+    .join('') : cn))
+  .join('.');
 
 const digitRemover = (int) => (int > 0 ? Math.floor(int) : Math.ceil(int));
 const baseCurrency = 'usd';
