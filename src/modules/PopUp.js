@@ -24,7 +24,6 @@ const clickHandler = (coin) => {
   fetchCoinData(coin)
     .then((coinData) => {
       popupInner.innerHTML = '';
-      console.log(coinData);
       const {
         name,
         symbol,
@@ -87,11 +86,9 @@ const clickHandler = (coin) => {
 export default () => {
   const coins = document.querySelectorAll('.coins > li');
   coins.forEach((coin) => {
-    const btn = coin.querySelector('.buyButton');
-    btn.addEventListener('click', (e) => {
-      let coinName = e.currentTarget.parentElement.parentElement.querySelector('.likeBtn').id;
-      const dashIndex = coinName.indexOf('-');
-      coinName = coinName.slice(dashIndex + 1);
+    const commentBtn = coin.querySelector('.commentAddIcon');
+    commentBtn.addEventListener('click', (e) => {
+      const coinName = e.currentTarget.id;
       clickHandler(coinName);
     });
   });
