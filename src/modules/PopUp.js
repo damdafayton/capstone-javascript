@@ -68,8 +68,8 @@ const clickHandler = (coin) => {
                     <div>
                       <input class="form-control" type="text" name="username" placeholder="username">
                       <textarea class="form-control mt-2" type="text" name="comment" placeholder="write your comment here"></textarea>
+                      <button class="btn btn-info text-white mt-2">Submit</button>
                     </div>
-                    <button class="btn btn-info text-white mt-2">Submit</button>
                   </form>
                 </div>
             </div>`;
