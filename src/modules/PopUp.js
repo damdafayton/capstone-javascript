@@ -43,7 +43,7 @@ const clickHandler = (coin) => {
                 <h2 class="mt-3">${name}</h2>
                 <div class="mb-3">
                     24H: <span ${digitRemover(priceChange24H) !== 0 && `class=${priceChange24H < 0 ? 'value-drop' : 'value-increase'}`}>${digitRemover(priceChange24H) ? `${digitRemover(priceChange24H)}%` : '-'}</span>
-                    1Y: <span ${digitRemover(priceChange24H) !== 0 && `class=${priceChange1Y < 0 ? 'value-drop' : 'value-increase'}`}>${digitRemover(priceChange1Y) ? `${digitRemover(priceChange1Y)}%` : '-'}</span >
+                    1Y: <span ${digitRemover(priceChange1Y) !== 0 && `class=${priceChange1Y < 0 ? 'value-drop' : 'value-increase'}`}>${digitRemover(priceChange1Y) ? `${digitRemover(priceChange1Y)}%` : '-'}</span >
                 </div >
                 <div class="row row-cols-2">
                     <div class="d-flex justify-content-center">
