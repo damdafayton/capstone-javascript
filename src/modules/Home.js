@@ -24,7 +24,7 @@ const createCoinElement = (coin) => `<li><ul class="coin">
                        <button class="buyButton" >Buy
                        <i class="fas fa-shopping-basket"></i></button>
                        </li>
-                       <li>Comments <i class="fas fa-comment-alt" id=${coin.id}></i></li>
+                       <li id=${coin.id} class="commentAddIcon">Comments <i class="fas fa-comment-alt" ></i></li>
                    </ul>
                 </li>`;
 
