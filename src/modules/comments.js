@@ -43,6 +43,7 @@ export function commentSubmitHandler(coinId) {
     const { username: { value: username }, comment: { value: comment } } = form;
     const body = JSON.stringify({ item_id: coinId, username, comment });
     commentSubmitToApi(body)
-      .then((response) => response.status === 201 && commentsPopulate(coinId));
+      .then((response) => response.status === 201 && commentsPopulate(coinId))
+      .then(() => form.reset())
   });
 }
