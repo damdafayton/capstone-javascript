@@ -1,4 +1,4 @@
-import { addCoinLikes, addLikeListner } from './Likes';
+import { addLikesToList, addLikeListner } from './Likes';
 
 import addPopupClickHandlers from './PopUp';
 
@@ -24,28 +24,26 @@ const createCoinElement = (coin) => `<li><ul class="coin">
                        <button class="buyButton" >Buy
                        <i class="fas fa-shopping-basket"></i></button>
                        </li>
-                       <li>Comments <i class="fas fa-comment-alt" id=${coin.id}></i></li>
+                       <li id=${coin.id} class="commentAddIcon">Comments <i class="fas fa-comment-alt" ></i></li>
                    </ul>
                 </li>`;
 
-const createCoinsList = async (request, ul, coinsCountContainer, displayFrom = 0) => {
-  const result = await getData(request);
-  coinsCountContainer.innerHTML = `Cryptocurrencies(${result.length})`;
+const createCoinsList = (result, ul, coinsCountContainer, displayFrom = 0) => {
+  coinsCountContainer.innerHTML = `Criptocurrencies(${cryptoCount(result)})`;
   ul.innerHTML = '';
   for (let i = displayFrom; i < (displayFrom + 20); i += 1) {
     ul.innerHTML += createCoinElement(result[i]);
-    // after creating list item i add likes and likeeventistner to it
-    await addCoinLikes(result[i].id, ul.querySelector(['#likeBtn-', result[i].id].join('')));
   }
 };
 
-const displayPage = (pageControlList, request, ul, coinsCountContainer) => {
+const displayPage = (pageControlList, result, ul, coinsCountContainer) => {
   pageControlList.forEach((element) => {
     element.addEventListener('click', () => {
       pageControlList.forEach((item) => item.classList.remove('selectedPage'));
       element.classList.add('selectedPage');
       // add popupClickHandler and likelistner to all dispalyed pages
-      createCoinsList(request, ul, coinsCountContainer, element.id * 20).then(() => {
+      createCoinsList(result, ul, coinsCountContainer, element.id * 20);
+      addLikesToList().then(() => {
         addLikeListner();
         addPopupClickHandlers();
       });
