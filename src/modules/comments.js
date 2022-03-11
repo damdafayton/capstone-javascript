@@ -36,10 +36,10 @@ function commentSubmitToApi(body) {
 }
 
 export function commentSubmitHandler(coinId) {
-  const formBtn = document.querySelector('#submit-form > button');
+  const formBtn = document.querySelector('#submit-form button');
   formBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const form = formBtn.parentElement;
+    const form = document.querySelector('#submit-form');
     const { username: { value: username }, comment: { value: comment } } = form;
     const body = JSON.stringify({ item_id: coinId, username, comment });
     commentSubmitToApi(body)
