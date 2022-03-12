@@ -1,14 +1,20 @@
-import _ from 'lodash';
 import './style.scss';
+import { displayPage, createCoinsList, getData } from './modules/Home';
+import { request } from './modules/api';
+import { addLikesToList, addLikeListner } from './modules/Likes';
+// import { addToDom, cryptoCount, getData } from './modules/Home';
+import addPopupClickHandlers from './modules/PopUp';
 
-function component() {
-  const element = document.createElement('div');
-  element.classList.add('border', 'border-2', 'border-dark')
+const listCoinsContainer = document.querySelector('.coins');
+const coinsCountContainer = document.querySelector('.cryptoCounter');
+const paginationController = document.querySelectorAll('.page');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+getData(request).then((result) => {
+  createCoinsList(result, listCoinsContainer, coinsCountContainer);
 
-  return element;
-}
-
-document.body.appendChild(component());
+  addLikesToList().then(() => {
+    addLikeListner();
+    addPopupClickHandlers();
+  });
+  displayPage(paginationController, result, listCoinsContainer, coinsCountContainer);
+});
