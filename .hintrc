@@ -21,13 +21,5 @@
         "html-checker",
         "meta-charset-utf-8",
         "meta-viewport"
-    ],
-    "ignoredUrls": [
-        {
-            "domain": "coverage/.*",
-            "hints": [
-                "html-checker"
-            ]
-        }
     ]
 }

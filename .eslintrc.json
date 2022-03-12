@@ -34,8 +34,6 @@
     "js/bootstrap.min.js.map",
     "package.json",
     "server.js",
-    "webpack.config.js",
-    "coverage/",
-    "jest.config.js"
+    "webpack.config.js"
   ]
 }
