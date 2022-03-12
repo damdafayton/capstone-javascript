@@ -16,7 +16,6 @@
         "dist/**",
         "**/reset*.css",
         "**/bootstrap*.css",
-        "**/style.css",
-        "coverage/**"
+        "**/style.css"
     ]
 }

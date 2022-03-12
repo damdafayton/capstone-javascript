@@ -4,12 +4,10 @@
     "start": "webpack serve --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "test": "jest --env=jsdom --verbose",
     "server": "node server.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.2",
-    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
@@ -19,9 +17,7 @@
     "eslint-plugin-import": "^2.25.4",
     "express": "^4.17.2",
     "hint": "^6.1.9",
-    "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
-    "jest": "^27.5.1",
     "parcel": "^2.3.1",
     "postcss": "^8.4.6",
     "postcss-loader": "^6.2.1",
