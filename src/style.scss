@@ -15,16 +15,11 @@ body {
   cursor: pointer !important;
 }
 
-li {
-  white-space: nowrap;
-}
-
 a:link {
   color: #f09e41;
 }
 
 footer {
-  padding: 5vh 1% 0% 1%;
   background-color: #2e1223;
   color: #f09e41;
   font-weight: 600;
@@ -90,7 +85,6 @@ ul {
 .coinImage {
   width: 50px;
   height: 50px;
-  margin-right: 10px;
 }
 
 .listTitles {
@@ -176,6 +170,10 @@ ul {
   margin-top: 20px;
   display: flex;
   justify-content: space-evenly;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
 }
 
 // .likeBtn {

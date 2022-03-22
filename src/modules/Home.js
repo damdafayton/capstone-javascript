@@ -1,6 +1,7 @@
 import { addLikesToList, addLikeListner } from './Likes';
 
 import addPopupClickHandlers from './PopUp';
+import { readableNumbers } from './PopUp';
 
 export default function populateHome() {
 
@@ -13,23 +14,22 @@ const getData = async (request) => {
 };
 const cryptoCount = (array) => array.length;
 
-const createCoinElement = (coin) => `<li><ul class="coin">
-                
-                       <li class="coinIcons"><img class="coinImage" src=${coin.image} alt='coin'/></li>
-                       <div class="nameAndLikes">
-                       <li><strong>${coin.name}</strong></li>
-                       <li class="likeIcons"><button id='likeBtn-${coin.id}' class="likeBtn" > <i class="fas fa-heart"></i><p></p></button></li>
-                       </div>
-                       <li>${coin.symbol}
-                       <button class="buyButton" >Buy
-                       <i class="fas fa-shopping-basket"></i></button>
-                       </li>
-                       <li id=${coin.id} class="commentAddIcon">Comments <i class="fas fa-comment-alt" ></i></li>
+const createCoinElement = (coin) => `
+                <li class="d-flex">
+                  <ul class="coin w-100 d-flex flex-column">
+                      <li class="coinIcons"><img class="coinImage mx-1 my-1" src=${coin.image} alt='coin'/></li>
+                      <li><strong>${coin.name} (${coin.symbol.toUpperCase()})</strong></li>
+                      <span class="h-100"></span>
+                      <li>$${readableNumbers(coin.current_price)}</li>
+                      <li class="likeIcons my-2"><button id='likeBtn-${coin.id}' class="likeBtn" > <i class="fas fa-heart"></i><p class="my-1"></p></button></li>
+                      <li id=${coin.id} class="commentAddIcon mb-1">Comments 
+                          <i class="fas fa-comment-alt vertical-align-middle" ></i>
+                      </li>
                    </ul>
                 </li>`;
 
 const createCoinsList = (result, ul, coinsCountContainer, displayFrom = 0) => {
-  coinsCountContainer.innerHTML = `Criptocurrencies(${cryptoCount(result)})`;
+  coinsCountContainer.innerHTML = `Total Coins (${cryptoCount(result)})`;
   ul.innerHTML = '';
   for (let i = displayFrom; i < (displayFrom + 20); i += 1) {
     ul.innerHTML += createCoinElement(result[i]);

@@ -94,4 +94,4 @@ export default () => {
   });
 };
 
-export { digitRemover };
+export { digitRemover, readableNumbers };

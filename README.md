@@ -1,12 +1,16 @@
+![](./screenshot_capstone_coins.png)
+![](./157871416-4ca7f692-ceca-4bc0-b12b-53208689294e.png)
+
+
 # Javascript Capstone Project
-this project is a web application that fetchs cryptocurrency data from a distant API and display it so users can check all info details of a currency like add comment and see other users comments and likes.  
-![Capture](https://user-images.githubusercontent.com/59707859/157871414-615c8537-5e27-433b-bcba-872819668bb6.PNG)
-![comments](https://user-images.githubusercontent.com/59707859/157871416-4ca7f692-ceca-4bc0-b12b-53208689294e.PNG)
-![footer](https://user-images.githubusercontent.com/59707859/157871417-a00fd46c-c93b-4dfe-a016-7931ca138302.PNG)
+
+> This project is a web application that fetchs cryptocurrency data from a distant API and display it so users can check all info details of a currency like add comment and see other users comments and likes. 
 
 
-## video demo
+## Video Demo
 https://drive.google.com/file/d/1-xuiTCdHtBemcroUUKqWTBp7AIWeNW0O/view?usp=sharing
+
+
 ## Built With
 
 - HTML, CSS, JavaScript
